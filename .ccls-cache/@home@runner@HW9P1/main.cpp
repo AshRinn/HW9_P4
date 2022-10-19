@@ -7,6 +7,7 @@ using namespace std;
 
 // function prototypes
 void printMatrix_3col(int matrix[][3], int N_ROWS, int N_COLUMNS);
+int CountUnhealthySensitive(int )
 
 ////////////////////// MAIN ///////////////////////////////////////
 int main()
@@ -42,6 +43,22 @@ void printMatrix_3col(int matrix[][3], int N_ROWS, int N_COLUMNS)
     {
         for(col = 0; col < N_COLUMNS; col++)
             cout << setw(6) << matrix[row][col] << " ";
+        
+        cout << endl;    
+    }
+
+  int CountUnhealthySensitive(int matrix[][3], int N_ROWS, int N_COLUMNS)
+{
+    int row, col;
+    for (row = 0; row < N_ROWS; row++)
+    {
+        for(col = 0; col < N_COLUMNS; col++)
+        {
+          if( N_COLUMNS >= 50)
+            
+            
+        }    
+          cout << setw(6) << matrix[row][col] << " ";
         
         cout << endl;    
     }
