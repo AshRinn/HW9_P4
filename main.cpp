@@ -69,22 +69,16 @@ void printMatrix_3col(int AirQuality_Index[][3], int N_ROWS, int N_COLUMNS)
 
   int CountUnhealthySensitive(int AirQuality_Index[][3], int N_ROWS, int N_COLUMNS){
     int count = 0;
-    int unhealthyLevel = 101;
-    for (row = 0; row < N_ROWS; row++)
-    {
-        for(col = 0; col < N_COLUMNS; col++)
-        
-        {
-          if( N_COLUMNS >= 50)
-            
-            
-        }    
-          cout << setw(6) << matrix[row][col] << " ";
-        
-        cout << endl;    
+    int Unhealthy_Level = 101;
+    int row; 
+    
+    for (row = 0; row < N_ROWS; row++){
+      if (AirQuality_Index[row][city_col] >= Unhealthy_Level)
+        count++;
+      }
+    return count;
     }
-  }
-}
+  //air quailty funtion
 
 int meanAirQualityIndex(int matrix[][3], int N_ROWS, int city_col)
 {
