@@ -14,6 +14,7 @@ int main()
 {
     const int N_ROWS = 10; 
     const int N_COLUMNS = 3;
+    int city_col;
     int AirQuality_Index[N_ROWS][N_COLUMNS] = {{50, 68, 58},
                                               {58, 115, 78},
                                               {62, 110, 81},
@@ -24,7 +25,14 @@ int main()
                                               {25, 91, 91},
                                               {27, 19, 59}, 
                                               {17, 13, 27}};
-
+   string place[] = {"Grand Juntion", "Fort Collins", "Denver"};
+  
+  cout << endl << "Air Quality Index" << endl << endl;
+  for (int col = 0; col < N_COLUMNS; col++){
+    cout << setw(8) << place[col] << " ";
+  }
+  cout << endl;
+    
     // display values in MyMatrix
     cout << "AirQuality_Index contains: " << endl;
     printMatrix_3col(AirQuality_Index, N_ROWS, N_COLUMNS);
