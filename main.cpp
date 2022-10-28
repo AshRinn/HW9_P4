@@ -27,7 +27,7 @@ int main()
                                               {17, 13, 27}};
 
   
-   string place[] = {"Grand Juntion", "Fort Collins", "Denver"};
+   string place[] = {"Grnd Jct.", "Ft Col.", "Den."};
   
   cout << endl << "Air Quality Index" << endl << endl;
   for (int col = 0; col < N_COLUMNS; col++){
@@ -36,7 +36,7 @@ int main()
   cout << endl;
 
   printMatrix_3col(AirQuality_Index, N_ROWS, N_COLUMNS);
-  
+cout << endl; 
 cout << "From 10/04/2020 to 10/13/2020, air quality was unhealthy for sensitive groups in: "<< endl;
 
   for (int col = 0; col < N_COLUMNS; col++ ){
@@ -46,16 +46,28 @@ cout << "From 10/04/2020 to 10/13/2020, air quality was unhealthy for sensitive 
       cout << "Fort Collins";
     if (col == 2)
       cout << "Denver";
-   cout << " for "<< CountUnhealthySensitive(AirQuality_Index, N_ROWS, col) << " days, with an average value of " << meanAirQualityIndex(AirQuality_Index, N_ROWS, col) << "." << endl;
-  } 
+   cout << " for "<< CountUnhealthySensitive(AirQuality_Index, N_ROWS, col) << " times."<< endl;
+    }
+  cout << endl;
+  cout<<"From 10/4/2020 to 10/13/2020 the average air quality in: " << endl;
+    for (int col = 0; col < N_COLUMNS; col++ ){
+    if (col == 0)
+      cout << "Grand Junction";
+    if (col == 1)
+      cout << "Fort Collins";
+    if (col == 2)
+      cout << "Denver";
+    cout << " was " <<meanAirQualityIndex(AirQuality_Index, N_ROWS, col) << "." << endl;
+   
     // display values in MyMatrix
    // cout << "AirQuality_Index contains: " << endl;
 }
+  }
 
 /////////////// USER-DEFINED MATRIX FUNCTIONS ////////////////////////////
 // Recall: you can omit the size of the first dimension, but not the second
 
-// function to print the matrix in a matrix with 3 columns
+// 
 void printMatrix_3col(int AirQuality_Index[][3], int N_ROWS, int N_COLUMNS)
 {
     int row, col;
@@ -66,18 +78,22 @@ void printMatrix_3col(int AirQuality_Index[][3], int N_ROWS, int N_COLUMNS)
         
         cout << endl;    
     }
-
-  int CountUnhealthySensitive(int AirQuality_Index[][3], int N_ROWS, int N_COLUMNS){
+  }
+//unhealthy funtion
+  int CountUnhealthySensitive(int AirQuality_Index[][3], int N_ROWS, int N_COLUMNS)
+{
     int count = 0;
     int Unhealthy_Level = 101;
     int row; 
     
-    for (row = 0; row < N_ROWS; row++){
-      if (AirQuality_Index[row][city_col] >= Unhealthy_Level)
+    for (row = 0; row < N_ROWS; row++)
+    {
+      if (AirQuality_Index[row][N_COLUMNS] >= Unhealthy_Level)
         count++;
-      }
-    return count;
     }
+    return count;
+}
+  
   //air quailty funtion
 
 int meanAirQualityIndex(int matrix[][3], int N_ROWS, int city_col)
@@ -91,3 +107,4 @@ int meanAirQualityIndex(int matrix[][3], int N_ROWS, int city_col)
 
 return avg;
 }
+  
