@@ -37,7 +37,7 @@ int main()
 
   printMatrix_3col(AirQuality_Index, N_ROWS, N_COLUMNS);
 cout << endl; 
-cout << "From 10/04/2020 to 10/13/2020, air quality was unhealthy for sensitive groups in: "<< endl;
+cout << "From 10/04/2020 to 10/13/2020 the air quality was unhealthy for sensitive groups in: "<< endl;
 
   for (int col = 0; col < N_COLUMNS; col++ ){
     if (col == 0)
