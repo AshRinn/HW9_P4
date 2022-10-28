@@ -6,9 +6,9 @@
 using namespace std;
 
 // function prototypes
-void printMatrix_3col(int matrix[][3], int N_ROWS, int N_COLUMNS);
-int CountUnhealthySensitive(int matrix[][3], int N_ROWS, int N_COLUMNS);
-int meanAirQualityIndex(int matrix[][3], int N_ROWS, int city_col);
+void printMatrix_3col(int AirQuality_Index[][3], int N_ROWS, int N_COLUMNS);
+int CountUnhealthySensitive(int AirQuality_Index[][3], int N_ROWS, int N_COLUMNS);
+int meanAirQualityIndex(int AirQuality_Index[][3], int N_ROWS, int city_col);
 ////////////////////// MAIN ///////////////////////////////////////
 int main()
 {
@@ -25,6 +25,8 @@ int main()
                                               {25, 91, 91},
                                               {27, 19, 59}, 
                                               {17, 13, 27}};
+
+  
    string place[] = {"Grand Juntion", "Fort Collins", "Denver"};
   
   cout << endl << "Air Quality Index" << endl << endl;
@@ -32,35 +34,46 @@ int main()
     cout << setw(8) << place[col] << " ";
   }
   cout << endl;
-    
-    // display values in MyMatrix
-    cout << "AirQuality_Index contains: " << endl;
-    printMatrix_3col(AirQuality_Index, N_ROWS, N_COLUMNS);
 
-    return 0;
+  printMatrix_3col(AirQuality_Index, N_ROWS, N_COLUMNS);
+  
+cout << "From 10/04/2020 to 10/13/2020, air quality was unhealthy for sensitive groups in: "<< endl;
+
+  for (int col = 0; col < N_COLUMNS; col++ ){
+    if (col == 0)
+      cout << "Grand Junction";
+    if (col == 1)
+      cout << "Fort Collins";
+    if (col == 2)
+      cout << "Denver";
+   cout << " for "<< CountUnhealthySensitive(AirQuality_Index, N_ROWS, col) << " days, with an average value of " << meanAirQualityIndex(AirQuality_Index, N_ROWS, col) << "." << endl;
+  } 
+    // display values in MyMatrix
+   // cout << "AirQuality_Index contains: " << endl;
 }
 
 /////////////// USER-DEFINED MATRIX FUNCTIONS ////////////////////////////
 // Recall: you can omit the size of the first dimension, but not the second
 
 // function to print the matrix in a matrix with 3 columns
-void printMatrix_3col(int matrix[][3], int N_ROWS, int N_COLUMNS)
+void printMatrix_3col(int AirQuality_Index[][3], int N_ROWS, int N_COLUMNS)
 {
     int row, col;
     for (row = 0; row < N_ROWS; row++)
     {
         for(col = 0; col < N_COLUMNS; col++)
-            cout << setw(6) << matrix[row][col] << " ";
+            cout << setw(8) <<AirQuality_Index[row][col] << " ";
         
         cout << endl;    
     }
 
-  int CountUnhealthySensitive(int matrix[][3], int N_ROWS, int N_COLUMNS)
-{
-    int row, col;
+  int CountUnhealthySensitive(int AirQuality_Index[][3], int N_ROWS, int N_COLUMNS){
+    int count = 0;
+    int unhealthyLevel = 101;
     for (row = 0; row < N_ROWS; row++)
     {
         for(col = 0; col < N_COLUMNS; col++)
+        
         {
           if( N_COLUMNS >= 50)
             
