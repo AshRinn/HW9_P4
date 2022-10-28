@@ -8,7 +8,7 @@ using namespace std;
 // function prototypes
 void printMatrix_3col(int matrix[][3], int N_ROWS, int N_COLUMNS);
 int CountUnhealthySensitive(int matrix[][3], int N_ROWS, int N_COLUMNS);
-int meanAirQualityIndex(int matrix[][3], int N_Rows, int city_col);
+int meanAirQualityIndex(int matrix[][3], int N_ROWS, int city_col);
 ////////////////////// MAIN ///////////////////////////////////////
 int main()
 {
@@ -65,4 +65,14 @@ void printMatrix_3col(int matrix[][3], int N_ROWS, int N_COLUMNS)
   }
 }
 
-int meanAirQualityIndex(int matrix[][3], int N_Rows, int city_col);
+int meanAirQualityIndex(int matrix[][3], int N_ROWS, int city_col)
+{
+  int sum= 0;
+  int row, avg;
+
+  for (row = 0; row < N_ROWS; row++)
+    sum = sum + matrix[row][city_col];
+  avg = sum / N_ROWS;
+
+return avg;
+}
